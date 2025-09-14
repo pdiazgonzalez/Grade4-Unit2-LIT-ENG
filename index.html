@@ -2,181 +2,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>4 Unit 2 Literature Common Assessment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { font-family: Verdana, sans-serif; line-height: 1.6; margin: 40px; font-size: 1.8em; }
+    :root {
+      --accent: #4caf50;
+      --danger: #b00020;
+      --ink: #222;
+      --ink-soft: #555;
+      --paper: #fff;
+      --muted: #f3f4f6;
+    }
+    body { font-family: Verdana, sans-serif; line-height: 1.6; margin: 40px; font-size: 24px; color: var(--ink); }
     h1, h2, h3 { text-align: center; }
-    .container { max-width: 1200px; margin: auto; }
-    .question { margin-bottom: 20px; }
+    .container { max-width: 1100px; margin: auto; }
+    .question { margin: 24px 0; padding: 16px; border-radius: 10px; background: var(--muted); }
+    .question p { margin-top: 0; }
     .correct { background-color: #d4edda; }
     .incorrect { background-color: #f8d7da; }
-    .feedback { font-weight: bold; margin-top: 5px; }
-    input[type="checkbox"] { transform: scale(2.5); margin: 10px; background-color: blue; }
-    input[type="radio"] { transform: scale(2.5); margin: 10px; background-color: blue; }
+    .feedback { font-weight: bold; margin-top: 8px; }
+
+    input[type="checkbox"], input[type="radio"] { transform: scale(1.6); margin: 6px 10px 6px 2px; }
+
     button[type="submit"] {
-      width: 350px; height: 80px; padding: 10px 20px;
-      background-color: #4CAF50; color: white; font-size: 1.5em; margin: 30px;
+      width: 340px; height: 70px; padding: 10px 20px;
+      background-color: var(--accent); color: white; font-size: 1.25rem; margin: 30px auto; display: inline-block;
+      border: 0; border-radius: 12px; cursor: pointer; font-weight: 700;
     }
-          .number-circle {
-  display: inline-block;
-  background: black;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 40%;   /* makes it a circle */
-  width: 44px;
-  height: 24px;
-  line-height: 24px;   /* centers text vertically */
-  text-align: center;
-  margin-right: 8px;
+    button[disabled] { opacity: .6; cursor: not-allowed; }
+
+.number-circle {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #000; color: #fff; font-weight: 700; font-size: .95rem;
+      border-radius: 50%; width: 28px; height: 28px; margin-right: 8px;
+    }
+    
+.q2a-select {
+  font-size: 24px;
+  font-family: Verdana, sans-serif;
+  padding: 6px 10px;
+  margin: 4px 0;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
 }
-    #teacherName {
-      width: 280px; height: 60px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;
+
+.q2a-mark {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.q2a-correct {
+  color: green;
+}
+
+.q2a-wrong {
+  color: red;
+}
+
+.center { display: block; margin: 0 auto; width: 100%; max-width: 640px; }
+
+.gd-image iframe { pointer-events: none; border: 0; width: 100%; max-width: 640px; height: 420px; }
+
+.table.style-one { font-family: Verdana, serif; margin: 20px auto; border-collapse: collapse; width: 100%; }
+.table.style-one td { border-bottom: 1px dotted #bbb; padding: 8px 6px; }
+
+.table.style-two { font-family: Verdana, sans-serif; border-collapse: collapse; border: 1px solid black; background-color: #ffffff; width: 100%; }
+.table.style-two td { border: 1px solid #ccc; padding: 10px; }
+
+#teacherName {
+      width: 280px; height: 48px; padding: 8px; border: 1px solid #ccc; border-radius: 8px;
       font-family: Georgia, serif; font-size: 24px; color: #333; background-color: #fcfc03;
     }
-    hr.rounded { border-top: 15px solid #bbb; border-radius: 5px; }
-    .unanswered { border: 2px solid red; background-color: #ffe6e6; padding: 8px; border-radius: 5px; }
+
+#studentName { width: 400px; height: 45px; padding: 8px; border: 1px solid #ccc; border-radius: 8px; font-family: Georgia, serif; font-size: 24px; color: #030303; background-color: #fcfc03; }
+
+hr.rounded { border: 0; height: 10px; background: linear-gradient(90deg, #bbb, #eee, #bbb); border-radius: 6px; margin: 28px 0; }
+.unanswered { border: 2px solid var(--danger); background-color: #ffe6e6; padding: 8px; border-radius: 10px; }
+
+.result-card { background: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 16px; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+.result-card h3 { margin-top: 0; }
   </style>
 </head>
 <body>
-
 <div class="container">
   <h1>Grade 4 Unit 2 Literature Common Assessment</h1>
 
-  <h4 style="font-size: 20px">Standards</h4>
-  <p style="text-align: left; font-size: 16px;"><strong>RI.4.2:</strong> Determine the theme of a story, drama, or poem from details in the text; summarize the text.</p>
-  <p style="text-align: left; font-size: 16px;"><strong>RI.4.4:</strong> Determine the meaning of words and phrases as they are used in a text, including those that allude to significant characters found in mythology, Tall Tales and Fables. (e.g. Herculean).</p>
+  <h4 style="font-size: 20px; text-align:left">Standards</h4>
+  <p style="text-align: left; font-size: 16px;"><strong>RL.4.2:</strong> Determine a theme of a story, drama, or poem from details in the text; summarize the text.</p>
+  <p style="text-align: left; font-size: 16px;"><strong>RL.4.4:</strong> Determine the meaning of words and phrases as they are used in a text, including those that allude to significant characters found in mythology, tall tales, and fables (e.g., <em>Herculean</em>).</p>
   <p style="text-align: left; font-size: 16px;"><strong>L.4.2:</strong> Demonstrate command of the conventions of standard English capitalization, punctuation, and spelling when writing.</p>
 
   <h2>Directions</h2>
   <p>Read the text and answer the questions that follow.</p>
 
-  <h2>Trail to Darkness</h2>
-  <p style="text-align: center; font-size: 16px;"><strong>by Bradford H. Robie, Highlights, Highlights for Children on 12.12.19 (Newsela)</strong></p>
+  <h2>Trail into Darkness</h2>
+  <p style="text-align: center; font-size: 16px;"><strong>by Bradford H. Robie, Highlights for Children (12/12/2019, via Newsela)</strong></p>
 
- <iframe src="https://drive.google.com/file/d/1RwaTMjWZgJlkwYlmr_ajOZOVWa1KUmRV/preview" width="640" height="480" allow="autoplay"></iframe>
-  
+  <div class="gd-image"><iframe src="https://drive.google.com/file/d/1RwaTMjWZgJlkwYlmr_ajOZOVWa1KUmRV/preview" class="center" allow="autoplay"></iframe></div>
+
   <p><span class="number-circle">1</span> A boulder as big as a house. That's how the guide book described Giant Rock. Dad said it was carried here by a glacier millions of years ago.</p>
-  <p><span class="number-circle">2</span> “I was finally going to see it, on snowshoes, with my three older cousins, my dad, and my uncle Don. I'd been snowshoeing before, and I liked the adventure of trekking through deep snow alongside wild-animal tracks. At the parking area, after putting on our snowshoes, we studied the map in the information kiosk. "We start here," Dad said, "on the red trail. Then we turn left onto the purple loop. That's where Giant Rock is."</p>
+  <p><span class="number-circle">2</span> I was finally going to see it, on snowshoes, with my three older cousins, my dad, and my uncle Don. I'd been snowshoeing before, and I liked the adventure of trekking through deep snow alongside wild-animal tracks. At the parking area, after putting on our snowshoes, we studied the map in the information kiosk. "We start here," Dad said, "on the red trail. Then we turn left onto the purple loop. That's where Giant Rock is."</p>
   <p><span class="number-circle">3</span> "Remember to stick together, guys," Uncle Don said.</p>
-  <p><span class="number-circle">5</span> My cousins were fast, but I managed to keep up. The trail ran uphill alongside a stone wall. It was easy to follow because red markers were nailed to the trees and the snow had been packed down by other hikers. At the top of the hill, we turned onto the purple trail, which wound back and forth, traversing the hills and gullies. We settled into a rhythm, with Dad and everyone else in front and me in the back, crunch-crunch-crunching through the snow.</p>
-  <p><span class="number-circle">6</span> The late afternoon sun felt warm, although it was already sinking lower. I saw lots of animal tracks—mostly deer, squirrel, and rabbit prints, which I recognized from my field guide. As the trail zigzagged on, my cousin Andrew said what I'd been thinking: "Will we ever reach Giant Rock?</p>
-  <p><span class="number-circle">7</span> "It really is as big as a house!"</p>
-  <p><span class="number-circle">8</span> My cousin Aiden smiled and turned to me. "Luke, do you think your dad invented the idea of Giant Rock just to get us away from the TV for a while?"</p>
-  <p><span class="number-circle">9</span> I laughed. "You never know."</p>
-  <p><span class="number-circle">10</span> Finally, we crested a hill and saw the massive boulder sitting alone in the forest. "It really is as big as a house!" my cousin Josh said, gazing up.</p>
-  <p><span class="number-circle">11</span> My cousins and I high-fived each other and jogged down the slope until we stood at the base, breathless. Standing in the boulder's giant shadow, I noticed the sun had dipped even lower.</p>
-  <p><span class="number-circle">12</span> "Let's head back," Dad said after a few minutes.</p>
-  <p><span class="number-circle">13</span> Soon we were crunch-crunch-crunching our way home. I was a little behind the group when I noticed a set of animal tracks I didn't recognize. They were hard to see among the snowshoe prints, so I followed them off the trail for a closer look. There were no claw marks, which meant they didn't belong to a dog or a fox. Instead, they looked like tiny handprints and footprints. Must be a raccoon, I thought, matching them to prints in my guide.</p>
-  <p><span class="number-circle">14</span> "Where is everyone?"</p>
-  <p><span class="number-circle">15</span> I looked up when I suddenly realized how quiet it had gotten. I was totally alone. "Hey!" I shouted.</p>
-  <p><span class="number-circle">16</span> Nothing. Just the sound of my own breathing and the hammering of a woodpecker echoing in the bare woods. They couldn't have gone far, I thought, stepping back onto the trail. I'll catch up to them if I hurry.</p>
-  <p><span class="number-circle">17</span> I came to a junction where I could turn left or go straight, but both trails had purple markers. The path to the left looked familiar, but when I stepped over a log I thought I'd seen before something told me I was going the wrong way, so I reversed direction. My mind started to race. Soon it might be too dark to tell what color the markers were. I couldn't just follow my own footsteps because there were so many tracks from other hikers.</p>
-  <p><span class="number-circle">18</span> It seemed to grow darker by the second. I had no flashlight. No phone. I began running. What if I couldn't find my way back? I started tearing through the woods in a panic, watching as the sun disappeared behind the trees. Then I came to a crossroads. Which way should I turn?</p>
-  <p><span class="number-circle">19</span> Stop, I told myself. Think. I pictured the map again. To get to Giant Rock we had turned left onto the purple loop. To get back, I needed to do the opposite and turn right onto the red trail. If this didn't work, I'd do what I had always heard you should do in a situation like this: stay put, and let your group find you.</p>
-  <p><span class="number-circle">20</span> I heard voices, someone calling. Then I noticed the stone wall, the trail running alongside it. This had to be right. I plunged downhill in giant steps. And then, the best sight ever: the parking lot—and my family! I shouted as I ran toward them.</p>
-  <p><span class="number-circle">21</span> "Luke? Are you OK?" Dad's voice was urgent. He shined a flashlight in my direction. I'd only been lost for minutes, but it had felt like forever. Now all I wanted was a bear hug from Dad and to make tracks for home.</p>
-  
-  <div style="background-color: Gainsboro;">
-  <form id="quizForm">
-    
-  <h2>Questions</h2>
+  <p><span class="number-circle">4</span> My cousins were fast, but I managed to keep up. The trail ran uphill alongside a stone wall. It was easy to follow because red markers were nailed to the trees and the snow had been packed down by other hikers. At the top of the hill, we turned onto the purple trail, which wound back and forth, traversing the hills and gullies. We settled into a rhythm, with Dad and everyone else in front and me in the back, crunch-crunch-crunching through the snow.</p>
+  <p><span class="number-circle">5</span> The late afternoon sun felt warm, although it was already sinking lower. I saw lots of animal tracks—mostly deer, squirrel, and rabbit prints, which I recognized from my field guide. As the trail zigzagged on, my cousin Andrew said what I'd been thinking: "Will we ever reach Giant Rock?"</p>
+  <p><span class="number-circle">6</span> "It really is as big as a house!"</p>
+  <p><span class="number-circle">7</span> My cousin Aiden smiled and turned to me. "Luke, do you think your dad invented the idea of Giant Rock just to get us away from the TV for a while?"</p>
+  <p><span class="number-circle">8</span> I laughed. "You never know."</p>
+  <p><span class="number-circle">9</span> Finally, we crested a hill and saw the massive boulder sitting alone in the forest. "It really is as big as a house!" my cousin Josh said, gazing up.</p>
+  <p><span class="number-circle">10</span> My cousins and I high-fived each other and jogged down the slope until we stood at the base, breathless. Standing in the boulder's giant shadow, I noticed the sun had dipped even lower.</p>
+  <p><span class="number-circle">11</span> "Let's head back," Dad said after a few minutes.</p>
+  <p><span class="number-circle">12</span> Soon we were crunch-crunch-crunching our way home. I was a little behind the group when I noticed a set of animal tracks I didn't recognize. They were hard to see among the snowshoe prints, so I followed them off the trail for a closer look. There were no claw marks, which meant they didn't belong to a dog or a fox. Instead, they looked like tiny handprints and footprints. Must be a raccoon, I thought, matching them to prints in my guide.</p>
 
-  <!-- onsubmit removed; JS handles submission -->
+  <div class="gd-image"><iframe src="https://drive.google.com/file/d/1KgfuOimE7crrVpGzROmJjLK_cL5r_sId/preview" class="center" allow="autoplay"></iframe></div>
+
+  <p><span class="number-circle">13</span> "Where is everyone?"</p>
+  <p><span class="number-circle">14</span> I looked up when I suddenly realized how quiet it had gotten. I was totally alone. "Hey!" I shouted.</p>
+  <p><span class="number-circle">15</span> Nothing. Just the sound of my own breathing and the hammering of a woodpecker echoing in the bare woods. They couldn't have gone far, I thought, stepping back onto the trail. I'll catch up to them if I hurry.</p>
+  <p><span class="number-circle">16</span> I came to a junction where I could turn left or go straight, but both trails had purple markers. The path to the left looked familiar, but when I stepped over a log I thought I'd seen before something told me I was going the wrong way, so I reversed direction. My mind started to race. Soon it might be too dark to tell what color the markers were. I couldn't just follow my own footsteps because there were so many tracks from other hikers.</p>
+  <p><span class="number-circle">17</span> It seemed to grow darker by the second. I had no flashlight. No phone. I began running. What if I couldn't find my way back? I started tearing through the woods in a panic, watching as the sun disappeared behind the trees. Then I came to a crossroads. Which way should I turn?</p>
+  <p><span class="number-circle">18</span> Stop, I told myself. Think. I pictured the map again. To get to Giant Rock we had turned left onto the purple loop. To get back, I needed to do the opposite and turn right onto the red trail. If this didn't work, I'd do what I had always heard you should do in a situation like this: stay put, and let your group find you.</p>
+
+  <div class="gd-image"><iframe src="https://drive.google.com/file/d/1W1pY7hePjyL51ieDlYKVawXvA7-CrU4w/preview" class="center" allow="autoplay"></iframe></div>
+
+  <p><span class="number-circle">19</span> I heard voices, someone calling. Then I noticed the stone wall, the trail running alongside it. This had to be right. I plunged downhill in giant steps. And then, the best sight ever: the parking lot—and my family! I shouted as I ran toward them.</p>
+  <p><span class="number-circle">20</span> "Luke? Are you OK?" Dad's voice was urgent. He shined a flashlight in my direction. I'd only been lost for minutes, but it had felt like forever. Now all I wanted was a bear hug from Dad and to make tracks for home.</p>
+
+  <div style="background-color: Gainsboro; padding: 1px 12px 16px; border-radius: 10px;">
   <form id="quizForm">
+    <h2>Questions</h2>
+
     <!-- 1a -->
-    <div class="question" data-answer="b" data-type="radio" data-name="q1a">
-      <p><strong>1a. From these themes, which one do you think is the <u>best</u> represented in this text? (RL.4.2)</strong></p>
-      <label for="q1a_a"><input type="radio" name="q1a" value="a" id="q1a_a"> a) You should always be honest.</label><br>
-      <label for="q1a_b"><input type="radio" name="q1a" value="b" id="q1a_b"> b) You can work together to make a change in your community.</label><br>
-      <label for="q1a_c"><input type="radio" name="q1a" value="c" id="q1a_c"> c) You can always make friends with anyone.</label><br>
-      <label for="q1a_d"><input type="radio" name="q1a" value="d" id="q1a_d"> d) Kids can make a difference.</label>
+    <div class="question" data-answer="c" data-type="radio" data-name="q1a">
+      <p><strong>1a. Which sentence <u>best</u> states a theme in the story? (RL.4.2)</strong></p>
+      <label for="q1a_a"><input type="radio" name="q1a" value="a" id="q1a_a"> a) Luke wasn’t paying attention to his group and got left behind.</label><br>
+      <label for="q1a_b"><input type="radio" name="q1a" value="b" id="q1a_b"> b) It isn’t wise to stop and look at things.</label><br>
+      <label for="q1a_c"><input type="radio" name="q1a" value="c" id="q1a_c"> c) Stay calm in times of trouble.</label><br>
+      <label for="q1a_d"><input type="radio" name="q1a" value="d" id="q1a_d"> d) Follow your tracks and you will be safe.</label>
     </div>
 
     <!-- 1b -->
-    <div class="question" data-type="openq1b" data-name="q1b">
-      <p><strong>1b. Explain your selection in Part A using complete sentences and evidence from the text. (RL.4.2)</strong></p>
-      <textarea style="font-size: 36px; color: #333333; font-family: 'Tahoma', sans-serif; width: 100%;" id="openq1b" rows="4" cols="50"></textarea>
+    <div class="question" data-type="open" data-name="q1b">
+      <p><strong>1b. Use evidence from the story to explain the theme you chose in Part 1a. (RL.4.2)</strong></p>
+      <textarea style="font-size: 22px; color: #333333; font-family: Tahoma, sans-serif; width: 100%;" id="openq1b" name="q1b" rows="4" required></textarea>
     </div>
 
     <!-- 2a -->
-    <div class="question" data-answer="a" data-type="radio" data-name="q2a">
-      <p><strong>2a. Select the statement that <u>best</u> describes what kind of city council leader Jasmine’s mother would be if she won the election. (RL.4.1)</strong></p>
-      <label for="q2a_a"><input type="radio" name="q2a" value="a" id="q2a_a"> a) Jasmine’s mother would be a caring leader.</label><br>
-      <label for="q2a_b"><input type="radio" name="q2a" value="b" id="q2a_b"> b) Jasmine’s mother would be an organized leader.</label><br>
-      <label for="q2a_c"><input type="radio" name="q2a" value="c" id="q2a_c"> c) Jasmine’s mother would be an empathetic leader.</label><br>
-      <label for="q2a_d"><input type="radio" name="q2a" value="d" id="q2a_d"> d) Jasmine’s mother would be a hardworking leader.</label>
+    <div class="question" data-type="order" data-name="q2a">
+      <p><strong>2a. Write the major events from the passage, “Trail Into Darkness” in the order that they happen to create a summary in the table below. (R. 4.2)</strong></p>
+      <table class="table style-one">
+        <tr><td>Luke saw animal tracks he did not recognize and followed them off the path.</td></tr>
+        <tr><td>Luke saw the parking lot and his family.</td></tr>
+        <tr><td>Dad led the group while Luke followed at the rear.</td></tr>
+        <tr><td>Luke calmed himself down and made a plan.</td></tr>
+        <tr><td>The group reached the rock as the sun was beginning to set.</td></tr>
+      </table>
+        <table class="table style-two">
+    <tr>
+      <td>1</td>
+      <td>
+        <select id="q2a1" class="q2a-select" name="q2a1" required>
+          <option value="" disabled selected>Choose…</option>
+          <option>Dad led the group while Luke followed at the rear.</option>
+          <option>The group reached the rock as the sun was beginning to set.</option>
+          <option>Luke saw animal tracks he did not recognize and followed them off the path.</option>
+          <option>Luke calmed himself down and made a plan.</option>
+          <option>Luke saw the parking lot and his family.</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>
+        <select id="q2a2" class="q2a-select" name="q2a2" required>
+          <option value="" disabled selected>Choose…</option>
+          <option>Dad led the group while Luke followed at the rear.</option>
+          <option>The group reached the rock as the sun was beginning to set.</option>
+          <option>Luke saw animal tracks he did not recognize and followed them off the path.</option>
+          <option>Luke calmed himself down and made a plan.</option>
+          <option>Luke saw the parking lot and his family.</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>
+        <select id="q2a3" class="q2a-select" name="q2a3" required>
+          <option value="" disabled selected>Choose…</option>
+          <option>Dad led the group while Luke followed at the rear.</option>
+          <option>The group reached the rock as the sun was beginning to set.</option>
+          <option>Luke saw animal tracks he did not recognize and followed them off the path.</option>
+          <option>Luke calmed himself down and made a plan.</option>
+          <option>Luke saw the parking lot and his family.</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>
+        <select id="q2a4" class="q2a-select" name="q2a4" required>
+          <option value="" disabled selected>Choose…</option>
+          <option>Dad led the group while Luke followed at the rear.</option>
+          <option>The group reached the rock as the sun was beginning to set.</option>
+          <option>Luke saw animal tracks he did not recognize and followed them off the path.</option>
+          <option>Luke calmed himself down and made a plan.</option>
+          <option>Luke saw the parking lot and his family.</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>
+        <select id="q2a5" class="q2a-select" name="q2a5" required>
+          <option value="" disabled selected>Choose…</option>
+          <option>Dad led the group while Luke followed at the rear.</option>
+          <option>The group reached the rock as the sun was beginning to set.</option>
+          <option>Luke saw animal tracks he did not recognize and followed them off the path.</option>
+          <option>Luke calmed himself down and made a plan.</option>
+          <option>Luke saw the parking lot and his family.</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+     <div style="margin-top:10px; text-align:center;">
+  <button type="button" id="resetQ2aBtn"
+          style="padding:8px 16px; font-size:16px; border-radius:8px; border:1px solid #888; background:#eee; cursor:pointer;">
+    Start Over
+  </button>
+</div>
+ 
+</div>
     </div>
 
     <!-- 2b -->
-    <div class="question" data-answer="a" data-type="radio" data-name="q2b">
-      <p><strong>2b. What evidence from the story supports your answer? (RL.4.1)</strong></p>
-      <label for="q2b_a"><input type="radio" name="q2b" value="a" id="q2b_a"> a) She is a firefighter and has spent her whole life helping others.</label><br>
-      <label for="q2b_b"><input type="radio" name="q2b" value="b" id="q2b_b"> b) She has a flier to communicate all the things she plans to work on if she is elected.</label><br>
-      <label for="q2b_c"><input type="radio" name="q2b" value="c" id="q2b_c"> c) She has a daughter who will help her.</label><br>
-      <label for="q2b_d"><input type="radio" name="q2b" value="d" id="q2b_d"> d) She was working hard to knock on voters' doors to win the election.</label>
+    <div class="question" data-type="open" data-name="q2b">
+      <p><strong>2b. Choose one more detail from the story that should be in the summary. Type it below, and include its sequence number. (RL.4.2)</strong></p>
+      <textarea style="font-size: 22px; color: #333333; font-family: Tahoma, sans-serif; width: 100%;" id="openq2b" name="q2b" rows="4" required></textarea>
     </div>
 
-    <!-- 3a -->
-    <div class="question" data-answer="d" data-type="radio" data-name="q3a">
-      <p><strong>3a. Choose the sentence below that <u>best summarizes</u> the story. (RL.4.2)</strong></p>
-      <label for="q3a_a"><input type="radio" name="q3a" value="a" id="q3a_a"> a) Kyla learns about city councils from her social studies teacher and convinces her mom to run for office. She wins the election.</label><br>
-      <label for="q3a_b"><input type="radio" name="q3a" value="b" id="q3a_b"> b) Kyla and her mom canvassed their neighborhood to try and win votes in the election. They convince enough people that she would make a positive impact on their town.</label><br>
-      <label for="q3a_c"><input type="radio" name="q3a" value="c" id="q3a_c"> c) The boss at the fire station tells Kyla’s mom that she should run for office. She listens to him so she can make a positive change for her town and she tries to win the election.</label><br>
-      <label for="q3a_d"><input type="radio" name="q3a" value="d" id="q3a_d"> d) Kyla’s mom is a firefighter who realizes the way to help make positive changes that her community needs is by running for city council. Kyla helps her mom campaign and she wins the election.</label>
-    </div>
-
-    <!-- 3b -->
-    <div class="question" data-answer="b,c" data-type="checkbox" data-name="q3b">
-      <p><strong>3b. Which <u>TWO</u> pieces of evidence from the passage <u>best</u> support the answer to part 3a? (RL.4.2)</strong></p>
-      <label for="q3b_a"><input type="checkbox" name="q3b" value="a" id="q3b_a"> a) She pointed to a map: our district, Ward 6, was in the western part of the city, near the river. “In order to run for your local seat, first you need to get your name on the official ballot.”</label><br>
-      <label for="q3b_b"><input type="checkbox" name="q3b" value="b" id="q3b_b"> b) “I’m tired of our concerns being ignored or put off until later. Folks in this town rely on the fire department for help. We need a bridge over the river to help with traffic, and we need to fix the roads.”</label><br>
-      <label for="q3b_c"><input type="checkbox" name="q3b" value="c" id="q3b_c"> c) Some supporters were so enthusiastic that they decided to volunteer with our campaign, and suddenly we had a whole team to help us. They went canvassing, too, working to convince our community that my mom would be the best representative.</label><br>
-      <label for="q3b_d"><input type="checkbox" name="q3b" value="d" id="q3b_d"> d) We tried our hardest, and we’ve brought our community together. That’s no small thing.” I nodded, but my stomach felt like it was full of butterflies. I knew my mom was right, but I still really wanted her to win.</label><br>
-      <label for="q3b_e"><input type="checkbox" name="q3b" value="e" id="q3b_e"> e) My mom shook her head and sighed, “My job is to put out fires, Jasmine, not fix the roads.”</label>
+    <!-- 3 -->
+    <div class="question" data-answer="d" data-type="radio" data-name="q3">
+      <p><strong>3. Which of these is the <u>best summary</u> of the passage, “Trail into Darkness”? (RL.4.2)</strong></p>
+      <label for="q3_a"><input type="radio" name="q3" value="a" id="q3_a"> a) Luke goes snowshoeing to find Giant Rock. On the way to Giant Rock, Luke sees an animal print that he follows off the path.</label><br>
+      <label for="q3_b"><input type="radio" name="q3" value="b" id="q3_b"> b) Luke goes skiing with his cousins. His dad warns him to stay with the group but he gets distracted on his way to Giant Rock and gets separated. Luke is terrified and decides to stay in one place until the rest of the group finds him.</label><br>
+      <label for="q3_c"><input type="radio" name="q3" value="c" id="q3_c"> c) Luke goes hiking with his family. They track multiple animals on the path. Luke gets distracted when he finds an animal print that he has never seen before. He ends up lost in the woods until his dad finds him.</label><br>
+      <label for="q3_d"><input type="radio" name="q3" value="d" id="q3_d"> d) Luke goes snowshoeing with his dad, uncles and cousins to see Giant Rock. On the way back to the car, Luke follows animal prints off the trail and realizes he is alone. He stays calm and makes a plan and is able to find his way back to the parking lot where he finds his family.</label>
     </div>
 
     <!-- 4a -->
-    <div class="question" data-type="openq4a" data-name="q4a">
-      <p><strong>4a. What does the word <em><u>canvassing</u></em> mean in this text? Write your answer in a complete sentence. (RL.4.4)</strong></p>
-      <textarea style="font-size: 36px; color: #333333; font-family: 'Tahoma', sans-serif; width: 100%;" id="openq4a" rows="4" cols="50"></textarea>
+    <div class="question" data-answer="c" data-type="radio" data-name="q4a">
+      <p><strong>4a. What is the meaning of the word <em>junction</em> as it appears in paragraph 16? (RL.4.4)</strong></p>
+      <label for="q4a_a"><input type="radio" name="q4a" value="a" id="q4a_a"> a) To move in a certain direction</label><br>
+      <label for="q4a_b"><input type="radio" name="q4a" value="b" id="q4a_b"> b) To turn a corner</label><br>
+      <label for="q4a_c"><input type="radio" name="q4a" value="c" id="q4a_c"> c) A point where things are joined</label><br>
+      <label for="q4a_d"><input type="radio" name="q4a" value="d" id="q4a_d"> d) An important decision</label>
     </div>
 
     <!-- 4b -->
-    <div class="question" data-answer="b,c" data-type="checkbox" data-name="q4b">
-      <p><strong>4b. Select <u>TWO</u> details from the text or picture that helps you understand the meaning of the word <em><u>canvassing</u></em> in paragraph 13? (RL.4.4)</strong></p>
-      <label for="q4b_a"><input type="checkbox" name="q4b" value="a" id="q4b_a"> a) “Canvassing worked!”</label><br>
-      <label for="q4b_b"><input type="checkbox" name="q4b" value="b" id="q4b_b"> b) “Now we knock on doors.”</label><br>
-      <label for="q4b_c"><input type="checkbox" name="q4b" value="c" id="q4b_c"> c) “Some people were helpful and some people just shut their doors on us.”</label><br>
-      <label for="q4b_d"><input type="checkbox" name="q4b" value="d" id="q4b_d"> d) “Now that I am getting to know my community, I can see that politics touches everyone.”</label><br>
-      <label for="q4b_e"><input type="checkbox" name="q4b" value="e" id="q4b_e"> e) “That’s why it matters to elect someone who cares too.”</label>
+    <div class="question" data-answer="c" data-type="radio" data-name="q4b">
+      <p><strong>4b. What detail from the text best supports your answer to part a? (RL.4.4)</strong></p>
+      <label for="q4b_a"><input type="radio" name="q4b" value="a" id="q4b_a"> a) Something told me I was going the wrong way.</label><br>
+      <label for="q4b_b"><input type="radio" name="q4b" value="b" id="q4b_b"> b) There were so many tracks from other hikers.</label><br>
+      <label for="q4b_c"><input type="radio" name="q4b" value="c" id="q4b_c"> c) I could turn left or go straight.</label><br>
+      <label for="q4b_d"><input type="radio" name="q4b" value="d" id="q4b_d"> d) My mind started to race.</label>
     </div>
-</div>
-    <hr class="rounded">
-    <p style="text-align: center; font-size: 40px; color: brown;"><b>This is the end of the test.</b></p>
-    <p style="text-align: left; font-size: 28px; color: brown;"><em>Make sure that you:</em></p>
-    <ul>
-      <li style="color: brown;">Check your answers before submitting the test.</li>
-      <li style="color: brown;">Type in your <b>name</b> and <b>last name</b> <u>correctly</u></li>
-      <li style="color: brown;">Enter <u>your</u> <b>teacher</b>'s name.</li>
-    </ul>
-    <p style="font-size: 28px; color: brown;"><em>When you are ready, click 'Submit' and your test will be auto-graded.</em></p>
 
-      <hr class="rounded">
+    <hr class="rounded" />
+
+    <p style="text-align: center; font-size: 30px; color: brown;"><b>This is the end of the test.</b></p>
+    <p style="text-align: left; font-size: 20px; color: brown;"><em>Make sure that you:</em></p>
+    <ul style="font-size: 18px; color: brown;">
+      <li>Check your answers before submitting the test.</li>
+      <li>Type your <b>first and last name</b> <u>correctly</u>.</li>
+      <li>Select <u>your</u> <b>teacher</b>'s name.</li>
+    </ul>
+    <p style="font-size: 20px; color: brown;"><em>When you are ready, click "Submit" and your test will be auto‑graded.</em></p>
+
+    <hr class="rounded" />
 
     <label>
       <p>
-        Name & Last Name (required):
-        <input style="width: 400px; height: 45px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: Georgia, serif; font-size: 24px; color: #030303; background-color: #fcfc03;"
-               type="text" id="studentName" name="name" placeholder="Type Your Name Here" required aria-label="Student Name">
+        Name &amp; Last Name (required):
+        <input type="text" id="studentName" name="studentName" placeholder="Type Your Name & Last Name Here" required aria-label="Student Name" />
       </p>
     </label>
 
     <label>
       <p>
         Teacher (required):
-        <select id="teacherName" name="teacher" required aria-label="Teacher">
+        <select id="teacherName" name="teacherName" required aria-label="Teacher">
           <option value="" disabled selected>Select your teacher</option>
           <option value="Becerril">Becerril</option>
           <option value="Cerwin">Cerwin</option>
@@ -185,185 +302,353 @@
       </p>
     </label>
 
-    <hr class="rounded">
     <div style="text-align: center;">
       <button type="submit" id="submitBtn">Submit</button>
     </div>
   </form>
 
-  <div id="result" style="margin-top:20px; font-weight:bold;"></div>
+  <div id="result" style="margin-top:20px;"></div>
+  </div>
 </div>
 
 <script>
 (() => {
-  const form = document.getElementById("quizForm");
-  const submitBtn = document.getElementById("submitBtn");
-  let isSubmitting = false;
+  const form = document.getElementById('quizForm');
+  const resultDiv = document.getElementById('result');
+  const submitBtn = document.getElementById('submitBtn');
+  let alreadySubmitted = false;
 
-  form.addEventListener("submit", async function(e) {
-    e.preventDefault();
-    if (isSubmitting) return; // prevent double-clicks
+  // ---- 2a choices & correct order ----
+  const Q2A_CHOICES = [
+    'Luke saw animal tracks he did not recognize and followed them off the path.',
+    'Luke saw the parking lot and his family.',
+    'Dad led the group while Luke followed at the rear.',
+    'Luke calmed himself down and made a plan.',
+    'The group reached the rock as the sun was beginning to set.'
+  ];
+  const Q2A_CORRECT = [
+    'Dad led the group while Luke followed at the rear.',
+    'The group reached the rock as the sun was beginning to set.',
+    'Luke saw animal tracks he did not recognize and followed them off the path.',
+    'Luke calmed himself down and made a plan.',
+    'Luke saw the parking lot and his family.'
+  ];
 
-    // Validate name & teacher first
-    const studentNameEl = document.getElementById("studentName");
-    const teacherNameEl = document.getElementById("teacherName");
-    studentNameEl.classList.remove("unanswered");
-    teacherNameEl.classList.remove("unanswered");
+  // Utilities
+  function makeOption(text, selectedValue) {
+    const opt = document.createElement('option');
+    opt.textContent = text;
+    opt.value = text;
+    if (text === selectedValue) opt.selected = true;
+    return opt;
+  }
+  function addPromptOption(select) {
+    const opt = document.createElement('option');
+    opt.textContent = 'Choose…';
+    opt.value = '';
+    opt.disabled = true;
+    opt.selected = true;
+    select.appendChild(opt);
+  }
+  function scrollToEl(el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 
-    if (!studentNameEl.value.trim()) {
-      alert("⚠️ Please enter your name.");
-      studentNameEl.classList.add("unanswered");
-      studentNameEl.scrollIntoView({ behavior: "smooth", block: "center" });
-      studentNameEl.focus();
-      return;
+  // Ensure each select has a trailing span for the ✓/✗ mark
+  function ensureQ2aMarkSpans(selects) {
+    selects.forEach((sel, i) => {
+      const next = sel.nextElementSibling;
+      if (!next || !next.classList.contains('q2a-mark')) {
+        const span = document.createElement('span');
+        span.className = 'q2a-mark';
+        span.id = `q2a${i+1}_mark`;
+        span.setAttribute('aria-live', 'polite');
+        sel.insertAdjacentElement('afterend', span);
+      }
+    });
+  }
+
+  // Update the ✓/✗ after submit
+  function updateQ2aMarks(results) {
+    for (let i = 1; i <= 5; i++) {
+      const mark = document.getElementById(`q2a${i}_mark`);
+      if (!mark) continue;
+      const ok = results.answers[`q2a${i}_correct`] === 'TRUE';
+      mark.textContent = ok ? ' ✓' : ' ✗';
+      mark.classList.remove('q2a-correct', 'q2a-wrong');
+      mark.classList.add(ok ? 'q2a-correct' : 'q2a-wrong');
+      // If unanswered, show nothing
+      if (!results.answers[`q2a${i}_answer`]) {
+        mark.textContent = '';
+        mark.classList.remove('q2a-correct', 'q2a-wrong');
+      }
     }
-    if (!teacherNameEl.value) {
-      alert("⚠️ Please select your teacher.");
-      teacherNameEl.classList.add("unanswered");
-      teacherNameEl.scrollIntoView({ behavior: "smooth", block: "center" });
-      teacherNameEl.focus();
-      return;
+  }
+
+  // Clear ✓/✗ (used on reset)
+  function clearQ2aMarks() {
+    for (let i = 1; i <= 5; i++) {
+      const mark = document.getElementById(`q2a${i}_mark`);
+      if (mark) {
+        mark.textContent = '';
+        mark.classList.remove('q2a-correct', 'q2a-wrong');
+      }
+    }
+  }
+
+  // --- Initialize and enforce unique selections across the five dropdowns
+  let q2aModule = null;
+  function initOrderDropdowns() {
+    const q2a = document.querySelector('.question[data-type="order"][data-name="q2a"]');
+    if (!q2a) return null;
+
+    const selects = Array.from(q2a.querySelectorAll('.q2a-select'));
+    const selectedByIndex = selects.map(s => s.value || '');
+
+    function renderAll() {
+      const chosen = new Set(selectedByIndex.filter(Boolean));
+
+      selects.forEach((sel, idx) => {
+        const keep = selectedByIndex[idx];
+        sel.innerHTML = '';
+        addPromptOption(sel);
+
+        Q2A_CHOICES.forEach(choice => {
+          const isMine = (keep && choice === keep);
+          if (!chosen.has(choice) || isMine) {
+            sel.appendChild(makeOption(choice, keep));
+          }
+        });
+      });
+
+      // Make sure marker spans exist (once)
+      ensureQ2aMarkSpans(selects);
     }
 
-    // Clear old highlights
-    document.querySelectorAll(".question").forEach(q => {
-      q.classList.remove("unanswered", "correct", "incorrect");
+    renderAll();
+
+    selects.forEach((sel, idx) => {
+      sel.addEventListener('change', () => {
+        selectedByIndex[idx] = sel.value || '';
+        renderAll();
+      });
     });
 
-    // Pass 1: Validation only
+    return { selects, selectedByIndex, renderAll };
+  }
+
+  // Returns { score, totalAuto, percent, answers }
+  function gradeAndCollect() {
     let score = 0;
-    let total = 0;
-    let openResponses = [];
-    let allAnswered = true;
+    let totalAuto = 0;
+    const answers = {};
+
+    document.querySelectorAll('.question')
+      .forEach(q => q.classList.remove('unanswered','correct','incorrect'));
+
+    const studentNameEl = document.getElementById('studentName');
+    const teacherNameEl = document.getElementById('teacherName');
+    if (!studentNameEl.value.trim() || !teacherNameEl.value) {
+      alert('Please enter your name and select your teacher.');
+      if (!studentNameEl.value.trim()) studentNameEl.focus(); else teacherNameEl.focus();
+      return null;
+    }
+
     let firstUnanswered = null;
 
-    document.querySelectorAll(".question").forEach(q => {
-      const type = q.dataset.type;
-      const name = q.dataset.name;
+    document.querySelectorAll('.question').forEach(q => {
+      const type = q.dataset.type;       // 'radio' | 'open' | 'order'
+      const name = q.dataset.name;       // e.g., 'q1a'
+      const correct = q.dataset.answer;  // for radios
 
-      if (type === "radio") {
-        total++;
-        const chosen = document.querySelector(`input[name="${name}"]:checked`);
+      if (type === 'radio') {
+        totalAuto++;
+        const chosen = q.querySelector('input[type="radio"]:checked');
         if (!chosen) {
-          allAnswered = false;
-          q.classList.add("unanswered");
+          q.classList.add('unanswered');
+          if (!firstUnanswered) firstUnanswered = q;
+          answers[`${name}_answer`] = '';
+          answers[`${name}_correct`] = 'FALSE';
+        } else {
+          const isCorrect = (chosen.value === correct);
+          q.classList.add(isCorrect ? 'correct' : 'incorrect');
+          if (isCorrect) score++;
+          answers[`${name}_answer`] = chosen.value;
+          answers[`${name}_correct`] = isCorrect ? 'TRUE' : 'FALSE';
+        }
+      } else if (type === 'open') {
+        const control = q.querySelector('textarea, input[type="text"]');
+        const val = (control?.value || '').trim();
+        if (!val) {
+          q.classList.add('unanswered');
           if (!firstUnanswered) firstUnanswered = q;
         }
-      } else if (type === "checkbox") {
-        total++;
-        const selected = Array.from(document.querySelectorAll(`input[name="${name}"]:checked`));
-        if (selected.length !== 2) {
-          allAnswered = false;
-          q.classList.add("unanswered");
+        answers[name] = val;
+      } else if (type === 'order') {
+        // --- NEW: treat Q2a as ONE auto-graded point only if ALL five are correct ---
+        const selects = q.querySelectorAll('.q2a-select');
+        const chosen = Array.from(selects).map(s => (s.value || '').trim());
+
+        // require all 5 selected & unique
+        if (chosen.some(v => !v)) {
+          q.classList.add('unanswered');
           if (!firstUnanswered) firstUnanswered = q;
         }
-      } else {
-        const textarea = q.querySelector("textarea");
-        if (textarea && textarea.value.trim() === "") {
-          allAnswered = false;
-          q.classList.add("unanswered");
+        const uniq = new Set(chosen.filter(Boolean));
+        if (uniq.size !== chosen.filter(Boolean).length) {
+          q.classList.add('unanswered');
           if (!firstUnanswered) firstUnanswered = q;
+          alert('For question 2a, each sentence can only be used once. Please adjust your selections.');
+        }
+
+        // record answers + per-position flags (for UI/Sheets)
+        let allCorrect = true;
+        for (let i = 0; i < 5; i++) {
+          const posCorrect = chosen[i] === Q2A_CORRECT[i];
+          answers[`q2a${i+1}_answer`] = chosen[i];
+          answers[`q2a${i+1}_correct`] = posCorrect ? 'TRUE' : 'FALSE';
+          if (!posCorrect) allCorrect = false;
+        }
+
+        // single scoring unit for Q2a
+        totalAuto++;
+        if (allCorrect) {
+          score++;
+          q.classList.add('correct');
+          answers['q2a_all_correct'] = 'TRUE';
+        } else {
+          q.classList.add('incorrect');
+          answers['q2a_all_correct'] = 'FALSE';
         }
       }
     });
 
-    if (!allAnswered) {
-      alert("⚠️ Please answer all questions. (Checkbox questions must have exactly TWO choices.)");
-      if (firstUnanswered) {
-        firstUnanswered.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-      return;
+    if (firstUnanswered) {
+      scrollToEl(firstUnanswered);
+      alert('Please answer all questions (including open responses).');
+      return null;
     }
 
-    // Pass 2: Grade & collect
-    let detailedAnswers = {};
-    document.querySelectorAll(".question").forEach(q => {
-      const type = q.dataset.type;
-      const correct = q.dataset.answer;
-      const name = q.dataset.name;
-      let studentAnswer = "";
+    const percent = totalAuto > 0 ? Math.round((score / totalAuto) * 100) : 0;
+    return { score, totalAuto, percent, answers };
+  }
 
-      if (type === "radio") {
-        const chosen = document.querySelector(`input[name="${name}"]:checked`);
-        studentAnswer = chosen.value;
-        if (chosen.value === correct) {
-          score++;
-          q.classList.add("correct");
-        } else {
-          q.classList.add("incorrect");
-        }
-      } else if (type === "checkbox") {
-        const selected = Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(cb => cb.value);
-        studentAnswer = selected.join(",");
-        const correctAnswers = (correct || "").split(",");
-        const isCorrect = selected.length === correctAnswers.length && correctAnswers.every(ans => selected.includes(ans));
-        if (isCorrect) {
-          score++;
-          q.classList.add("correct");
-        } else {
-          q.classList.add("incorrect");
-        }
-      } else {
-        const textarea = q.querySelector("textarea");
-        if (textarea) {
-          studentAnswer = textarea.value.trim();
-          openResponses.push({ question: q.querySelector("p").innerText, answer: studentAnswer });
-          q.classList.add("correct"); // recorded
-        }
-      }
+  // --- INIT ---
+  const q2aContainer = document.querySelector('.question[data-type="order"][data-name="q2a"]');
+  q2aModule = initOrderDropdowns();
 
-      detailedAnswers[name] = studentAnswer;
+  // Reset 2a button
+  const resetBtn = document.getElementById('resetQ2aBtn');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      const q2a = q2aContainer;
+      if (!q2a || !q2aModule) return;
+
+      q2aModule.selectedByIndex.forEach((_, i) => q2aModule.selectedByIndex[i] = '');
+      q2aModule.selects.forEach(sel => { sel.value = ''; });
+      q2aModule.renderAll();
+      q2a.classList.remove('unanswered', 'correct', 'incorrect');
+      clearQ2aMarks(); // clear ✓/✗ on reset
     });
+  }
 
-    const percent = Math.round((score / total) * 100);
-    const studentName = studentNameEl.value.trim();
-    const teacherName = teacherNameEl.value;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (alreadySubmitted) return;
 
-    // Display report
-    let openHTML = "";
-    if (openResponses.length > 0) {
-      openHTML = "<h3>Open-Ended Responses</h3><ul>";
-      openResponses.forEach(r => {
-        openHTML += `<li><strong>${r.question}</strong><br>Response: ${r.answer}</li>`;
-      });
-      openHTML += "</ul>";
-    }
+    const results = gradeAndCollect();
+    if (!results) return;
 
-    document.getElementById("result").innerHTML = `
-      <h3>Student Report Card</h3>
-      <p><strong>Student:</strong> ${studentName}</p>
-      <p><strong>Teacher:</strong> ${teacherName}</p>
-      <p><strong>Score:</strong> ${score} out of ${total} correct (${percent}%).</p>
-      <p><em>Note:</em> Only multiple-choice and checkbox questions are auto-graded.</p>
-      ${openHTML}
+    alreadySubmitted = true;
+    submitBtn.disabled = true;
+
+    // Update inline ✓/✗ for 2a
+    updateQ2aMarks(results);
+
+    const studentName = document.getElementById('studentName').value.trim();
+    const teacherName = document.getElementById('teacherName').value;
+
+    const q2aCorrectCount = ['q2a1_correct','q2a2_correct','q2a3_correct','q2a4_correct','q2a5_correct']
+      .reduce((n,k)=> n + (results.answers[k]==='TRUE' ? 1 : 0), 0);
+
+    // Render result card
+    resultDiv.innerHTML = `
+      <div class="result-card">
+        <h3>Student Report</h3>
+        <p><strong>Student:</strong> ${studentName} &nbsp; | &nbsp; <strong>Teacher:</strong> ${teacherName}</p>
+        <p><strong>Auto-graded Score:</strong> ${results.score} / ${results.totalAuto} &nbsp; (<strong>${results.percent}%</strong>)</p>
+        <details>
+          <summary><strong>Open Responses</strong> (for teacher review)</summary>
+          <ul>
+            <li><strong>1b:</strong> ${results.answers['q1b'] || '<em>—</em>'}</li>
+            <li><strong>2a accuracy:</strong> ${q2aCorrectCount} / 5</li>
+            <li><strong>2a (sequence):</strong> [${results.answers['q2a1_answer'] || '—'}; ${results.answers['q2a2_answer'] || '—'}; ${results.answers['q2a3_answer'] || '—'}; ${results.answers['q2a4_answer'] || '—'}; ${results.answers['q2a5_answer'] || '—'}]</li>
+            <li><strong>2b:</strong> ${results.answers['q2b'] || '<em>—</em>'}</li>
+          </ul>
+        </details>
+        <p style="color:${results.percent>=70?'#256f2a':'#8a1a1a'}"><em>${results.percent>=70?'Proficient or better on auto-graded items':'Needs support on auto-graded items'}</em></p>
+      </div>
     `;
 
-    // Prepare payload for Google Sheets
-    const payload = { studentName, teacherName, score, percent, ...detailedAnswers };
-    const formBody = Object.keys(payload)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(payload[key]))
-      .join("&");
+    // ---------- SEND TO GOOGLE APPS SCRIPT (form-encoded) ----------
+    const payload = {
+      Timestamp: new Date().toISOString(),
+      studentName,
+      teacherName,
+      score: results.score,
+      percent: results.percent,
 
-    // Lock UI & send
-    isSubmitting = true;
+      // MC answers + correctness
+      q1a_answer: results.answers['q1a_answer'] || '',
+      q1a_correct: results.answers['q1a_correct'] || '',
+      q3_answer:  results.answers['q3_answer']  || '',
+      q3_correct: results.answers['q3_correct'] || '',
+      q4a_answer: results.answers['q4a_answer'] || '',
+      q4a_correct: results.answers['q4a_correct'] || '',
+      q4b_answer: results.answers['q4b_answer'] || '',
+      q4b_correct: results.answers['q4b_correct'] || '',
+
+      // Ordered answers (+ correctness flags) + single-point flag
+      q2a1_answer: results.answers['q2a1_answer'] || '',
+      q2a1_correct: results.answers['q2a1_correct'] || '',
+      q2a2_answer: results.answers['q2a2_answer'] || '',
+      q2a2_correct: results.answers['q2a2_correct'] || '',
+      q2a3_answer: results.answers['q2a3_answer'] || '',
+      q2a3_correct: results.answers['q2a3_correct'] || '',
+      q2a4_answer: results.answers['q2a4_answer'] || '',
+      q2a4_correct: results.answers['q2a4_correct'] || '',
+      q2a5_answer: results.answers['q2a5_answer'] || '',
+      q2a5_correct: results.answers['q2a5_correct'] || '',
+      q2a_all_correct: results.answers['q2a_all_correct'] || '',
+
+      // Other open response
+      q1b: results.answers['q1b'] || '',
+      q2b: results.answers['q2b'] || ''
+    };
+
+    const formBody = Object.keys(payload)
+      .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(payload[k]))
+      .join('&');
+
     const originalBtnText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Submitting...";
+    submitBtn.textContent = 'Submitting…';
 
     try {
-      const res = await fetch("https://script.google.com/macros/s/AKfycbz7ujYPH-7VFJ41wMfEwU50Zw1_a_SWt8VzgvTn3uSeksn83Gd2qmgdvM9WqDjy7gxwTw/exec", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formBody
-      });
-      const data = await res.text();
-      console.log("Server response:", data);
-      submitBtn.textContent = "Submitted ✓"; // keep disabled to prevent resubmission
-      alert("Quiz submitted successfully!");
+      const res = await fetch(
+        "https://script.google.com/macros/s/AKfycby6Pcm1dbDSeCjub2RKzDJrqXvifsnJYqED1-gtLV9NH4wBLFGCr8-EPm1G1kvZtHw/exec",
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: formBody
+        }
+      );
+      const text = await res.text();
+      console.log('Server response:', text);
+      submitBtn.textContent = 'Submitted ✓';
     } catch (err) {
-      console.error("Error:", err);
-      alert("There was an error submitting your quiz. Please try again.");
-      isSubmitting = false;
+      console.error(err);
+      alert('There was an error submitting your quiz. Please try again.');
+      alreadySubmitted = false;
       submitBtn.disabled = false;
       submitBtn.textContent = originalBtnText;
     }
