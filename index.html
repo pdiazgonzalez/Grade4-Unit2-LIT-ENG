@@ -31,7 +31,7 @@
       border: 0; border-radius: 12px; cursor: pointer; font-weight: 700;
     }
     button[disabled] { opacity: .6; cursor: not-allowed; }
-
+  
 .number-circle {
       display: inline-flex; align-items: center; justify-content: center;
       background: #000; color: #fff; font-weight: 700; font-size: .95rem;
@@ -64,9 +64,19 @@
   color: red;
 }
 
+.float-image {
+  float: left;
+  width: 260px;
+  height: 200px;
+  margin: 0 0 10px 10px; /* this pushes text away */
+  border: none;
+  }
+
 .center { display: block; margin: 0 auto; width: 100%; max-width: 640px; }
 
-.gd-image iframe { pointer-events: none; border: 0; width: 100%; max-width: 640px; height: 420px; }
+.gd-image iframe { pointer-events: none; border: 0; width: 100%; max-width: 640px; height: 698px; }
+.gd-image-2 iframe { pointer-events: none; border: 0; width: 100%; max-width: 640px; height: 313px; }
+.gd-image-3 iframe { pointer-events: none; border: 0; width: 100%; max-width: 640px; height: 504px; }
 
 .table.style-one { font-family: Verdana, serif; margin: 20px auto; border-collapse: collapse; width: 100%; }
 .table.style-one td { border-bottom: 1px dotted #bbb; padding: 8px 6px; }
@@ -91,7 +101,6 @@ hr.rounded { border: 0; height: 10px; background: linear-gradient(90deg, #bbb, #
 <body>
 <div class="container">
   <h1>Grade 4 Unit 2 Literature Common Assessment</h1>
-
   <h4 style="font-size: 20px; text-align:left">Standards</h4>
   <p style="text-align: left; font-size: 16px;"><strong>RL.4.2:</strong> Determine a theme of a story, drama, or poem from details in the text; summarize the text.</p>
   <p style="text-align: left; font-size: 16px;"><strong>RL.4.4:</strong> Determine the meaning of words and phrases as they are used in a text, including those that allude to significant characters found in mythology, tall tales, and fables (e.g., <em>Herculean</em>).</p>
@@ -118,7 +127,7 @@ hr.rounded { border: 0; height: 10px; background: linear-gradient(90deg, #bbb, #
   <p><span class="number-circle">11</span> "Let's head back," Dad said after a few minutes.</p>
   <p><span class="number-circle">12</span> Soon we were crunch-crunch-crunching our way home. I was a little behind the group when I noticed a set of animal tracks I didn't recognize. They were hard to see among the snowshoe prints, so I followed them off the trail for a closer look. There were no claw marks, which meant they didn't belong to a dog or a fox. Instead, they looked like tiny handprints and footprints. Must be a raccoon, I thought, matching them to prints in my guide.</p>
 
-  <div class="gd-image"><iframe src="https://drive.google.com/file/d/1KgfuOimE7crrVpGzROmJjLK_cL5r_sId/preview" class="center" allow="autoplay"></iframe></div>
+  <div class="gd-image-2"><iframe src="https://drive.google.com/file/d/1KgfuOimE7crrVpGzROmJjLK_cL5r_sId/preview" class="center" allow="autoplay"></iframe></div>
 
   <p><span class="number-circle">13</span> "Where is everyone?"</p>
   <p><span class="number-circle">14</span> I looked up when I suddenly realized how quiet it had gotten. I was totally alone. "Hey!" I shouted.</p>
@@ -126,11 +135,12 @@ hr.rounded { border: 0; height: 10px; background: linear-gradient(90deg, #bbb, #
   <p><span class="number-circle">16</span> I came to a junction where I could turn left or go straight, but both trails had purple markers. The path to the left looked familiar, but when I stepped over a log I thought I'd seen before something told me I was going the wrong way, so I reversed direction. My mind started to race. Soon it might be too dark to tell what color the markers were. I couldn't just follow my own footsteps because there were so many tracks from other hikers.</p>
   <p><span class="number-circle">17</span> It seemed to grow darker by the second. I had no flashlight. No phone. I began running. What if I couldn't find my way back? I started tearing through the woods in a panic, watching as the sun disappeared behind the trees. Then I came to a crossroads. Which way should I turn?</p>
   <p><span class="number-circle">18</span> Stop, I told myself. Think. I pictured the map again. To get to Giant Rock we had turned left onto the purple loop. To get back, I needed to do the opposite and turn right onto the red trail. If this didn't work, I'd do what I had always heard you should do in a situation like this: stay put, and let your group find you.</p>
+
+  <div class="gd-image-3"><iframe src="https://drive.google.com/file/d/1W1pY7hePjyL51ieDlYKVawXvA7-CrU4w/preview" class="center" allow="autoplay"></iframe></div>
+  
   <p><span class="number-circle">19</span> I heard voices, someone calling. Then I noticed the stone wall, the trail running alongside it. This had to be right. I plunged downhill in giant steps. And then, the best sight ever: the parking lot—and my family! I shouted as I ran toward them.</p>
   <p><span class="number-circle">20</span> "Luke? Are you OK?" Dad's voice was urgent. He shined a flashlight in my direction. I'd only been lost for minutes, but it had felt like forever. Now all I wanted was a bear hug from Dad and to make tracks for home.</p>
- 
-  <div class="gd-image"><iframe src="https://drive.google.com/file/d/1W1pY7hePjyL51ieDlYKVawXvA7-CrU4w/preview" class="center" allow="autoplay"></iframe></div>
-  
+
   <div style="background-color: Gainsboro; padding: 1px 12px 16px; border-radius: 10px;">
   <form id="quizForm">
     <h2>Questions</h2>
@@ -245,7 +255,7 @@ hr.rounded { border: 0; height: 10px; background: linear-gradient(90deg, #bbb, #
 
     <!-- 3 -->
     <div class="question" data-answer="d" data-type="radio" data-name="q3">
-      <p><strong>3. Which of these is the <u>best summary</u> of the passage, “Trail into Darkness”? (RL.4.2)</strong></p>
+      <p><strong>3. Which of these is the <u>best</u> summary of the passage, “Trail into Darkness”? (RL.4.2)</strong></p>
       <label for="q3_a"><input type="radio" name="q3" value="a" id="q3_a"> a) Luke goes snowshoeing to find Giant Rock. On the way to Giant Rock, Luke sees an animal print that he follows off the path.</label><br>
       <label for="q3_b"><input type="radio" name="q3" value="b" id="q3_b"> b) Luke goes skiing with his cousins. His dad warns him to stay with the group but he gets distracted on his way to Giant Rock and gets separated. Luke is terrified and decides to stay in one place until the rest of the group finds him.</label><br>
       <label for="q3_c"><input type="radio" name="q3" value="c" id="q3_c"> c) Luke goes hiking with his family. They track multiple animals on the path. Luke gets distracted when he finds an animal print that he has never seen before. He ends up lost in the woods until his dad finds him.</label><br>
@@ -254,7 +264,7 @@ hr.rounded { border: 0; height: 10px; background: linear-gradient(90deg, #bbb, #
 
     <!-- 4a -->
     <div class="question" data-answer="c" data-type="radio" data-name="q4a">
-      <p><strong>4a. What is the meaning of the word <em>junction</em> as it appears in paragraph 16? (RL.4.4)</strong></p>
+      <p><strong>4a. What is the meaning of the word <u>junction</u> as it appears in paragraph 16? (RL.4.4)</strong></p>
       <label for="q4a_a"><input type="radio" name="q4a" value="a" id="q4a_a"> a) To move in a certain direction</label><br>
       <label for="q4a_b"><input type="radio" name="q4a" value="b" id="q4a_b"> b) To turn a corner</label><br>
       <label for="q4a_c"><input type="radio" name="q4a" value="c" id="q4a_c"> c) A point where things are joined</label><br>
